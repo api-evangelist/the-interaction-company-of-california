@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Poke Messaging API
+  version: v1
+  description: The Poke API lets applications and automation tools send messages to Poke programmatically. Messages are processed by Poke with access to the user's email, calendar, reminders, and connected integrations. It is designed for desktop tools, CI/CD triggers, webhooks, and bridging services that have no native Poke integration. Poke is built by The Interaction Company of California.
+  contact:
+    name: Interaction Co.
+    url: https://poke.com/docs/api
+    email: hi@interaction.co
+  termsOfService: https://poke.com/terms
+  x-provenance:
+    generated: '2026-07-21'
+    method: generated
+    source: https://poke.com/docs/api
+    note: No OpenAPI is published by the provider. This spec is a faithful transcription of the single documented endpoint on https://poke.com/docs/api (endpoint, method, bearer auth, request/response shape, and the deprecated legacy endpoint). No fields were invented.
+servers:
+- url: https://poke.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Messaging
+  description: Send messages to Poke programmatically.
+paths:
+  /api/v1/inbound/api-message:
+    post:
+      operationId: sendInboundMessage
+      tags:
+      - Messaging
+      summary: Send a message to Poke
+      description: Send a message to Poke programmatically. The entire JSON body is forwarded to the agent as context; a `message` field carrying the instruction or question is the documented convention. Authenticate with a V2 API key (generated in Kitchen) as a bearer token.
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        description: Any JSON object. The entire body is forwarded to your agent as context.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InboundMessage'
+            example:
+              message: Your instruction or question here
+      responses:
+        '200':
+          description: Message accepted and sent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResult'
+              example:
+                success: true
+                message: Message sent successfully
+        '401':
+          description: Missing or invalid bearer API key.
+  /api/v1/inbound-sms/webhook:
+    post:
+      operationId: sendInboundSmsWebhook
+      tags:
+      - Messaging
+      deprecated: true
+      summary: Legacy inbound SMS webhook (deprecated)
+      description: Deprecated legacy inbound endpoint. Works only with legacy V1 API keys (the `pk_`-prefixed keys from app Settings). Use `POST /api/v1/inbound/api-message` with a V2 API key instead.
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Message accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResult'
+        '401':
+          description: Missing or invalid legacy V1 API key.
+components:
+  schemas:
+    MessageResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the message was delivered.
+        message:
+          type: string
+          description: Human-readable status string.
+      required:
+      - success
+    InboundMessage:
+      type: object
+      description: Any JSON object; the entire body is forwarded to the agent as context. The documented convention is a single `message` field.
+      properties:
+        message:
+          type: string
+          description: The instruction or question to send to Poke.
+      example:
+        message: Your instruction or question here
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'V2 API key generated in Kitchen, sent as `Authorization: Bearer YOUR_API_KEY`. Legacy `pk_`-prefixed V1 keys work only with the deprecated inbound-sms webhook.'
