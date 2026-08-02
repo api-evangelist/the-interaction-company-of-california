@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://poke.com/docs/creating-recipes
+name: poke
+package: npm:poke
+install:
+  - npx poke@latest
+  - npm install -g poke
+docs: https://poke.com/docs/creating-recipes
+description: >-
+  First-party Poke CLI (distributed as the `poke` npm package). Authenticates
+  developers, connects MCP servers, tunnels local dev servers, and creates
+  shareable Recipes.
+commands:
+  - group: auth
+    commands:
+      - name: login
+        usage: npx poke@latest login
+        description: Browser-based sign-in.
+      - name: logout
+        description: Sign out.
+      - name: whoami
+        description: Show the currently authenticated account.
+  - group: mcp
+    commands:
+      - name: mcp add
+        usage: npx poke@latest mcp add
+        description: Connect a remote or local MCP server to Poke.
+  - group: dev
+    commands:
+      - name: tunnel
+        usage: npx poke@latest tunnel
+        description: Expose a local development server (for local MCP servers).
+  - group: recipes
+    commands:
+      - name: --recipe
+        description: Generate a shareable Recipe link from the CLI.
+key_flows:
+  - Authenticate, then connect a local MCP server via `tunnel` + `mcp add` for development.
+  - Publish and share Recipes (bundles of integrations/automations) via Kitchen or the CLI `--recipe` flag.

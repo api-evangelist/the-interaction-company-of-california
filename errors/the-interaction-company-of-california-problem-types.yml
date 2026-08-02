@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/the-interaction-company-of-california-poke-openapi.yml
+format: none
+envelope:
+  shape: '{ success: boolean, message: string }'
+  notes: >-
+    The Poke API does not publish an RFC 9457 problem catalog. Success is
+    signaled by a boolean `success` field; auth failures return HTTP 401. The
+    entries below are derived from the documented endpoint responses only.
+problems:
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid bearer API key.
+    source_operation: openapi/the-interaction-company-of-california-poke-openapi.yml#sendInboundMessage
+  - status: 200
+    title: Message sent
+    detail: 'Returned as { success: true, message: "Message sent successfully" }.'
+    source_operation: openapi/the-interaction-company-of-california-poke-openapi.yml#sendInboundMessage

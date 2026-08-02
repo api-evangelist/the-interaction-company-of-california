@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Poke API
+  version: 1.0.0
+extends: openapi/the-interaction-company-of-california-poke-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: the-interaction-company-of-california
+      x-apievangelist-product: Poke
+      x-apievangelist-status-page: https://status.poke.com
+      x-apievangelist-changelog: https://poke.com/docs/release-notes
+  - target: "$.paths['/api/v1/inbound/api-message'].post"
+    update:
+      x-apievangelist-marquee: true
+      x-apievangelist-use-case: >-
+        Send a message to Poke from CI/CD, a webhook, or any bridging service.
+  - target: "$.paths['/api/v1/inbound-sms/webhook'].post"
+    update:
+      x-apievangelist-deprecation-replacement: /api/v1/inbound/api-message

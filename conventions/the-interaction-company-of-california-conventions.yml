@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://poke.com/docs/api
+authentication:
+  style: bearer
+  header: Authorization
+  format: 'Bearer YOUR_API_KEY'
+  notes: >-
+    V2 API keys are generated in Kitchen. Legacy pk_-prefixed V1 keys are only
+    accepted by the deprecated inbound-sms webhook. See
+    authentication/the-interaction-company-of-california-authentication.yml.
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or contract is documented for the Poke API.
+pagination:
+  supported: false
+  notes: The single documented endpoint returns a simple status object; no list/pagination surface.
+request_body:
+  content_type: application/json
+  notes: >-
+    Any JSON object is accepted; the entire body is forwarded to the agent as
+    context. The documented convention is a single `message` field.
+response_envelope:
+  shape: '{ success: boolean, message: string }'
+  notes: >-
+    Success/status is signaled by a boolean `success` field plus a human-readable
+    `message` string, not by an RFC 9457 problem+json envelope.
+versioning:
+  style: uri-path
+  current: v1
+  see: lifecycle/the-interaction-company-of-california-lifecycle.yml
+rate_limiting:
+  documented: false

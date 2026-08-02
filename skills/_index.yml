@@ -1,0 +1,8 @@
+generated: '2026-07-21'
+method: generated
+skills:
+  - file: the-interaction-company-of-california-send-message.md
+    name: Send a message to Poke
+    api: openapi/the-interaction-company-of-california-poke-openapi.yml
+    operations:
+      - sendInboundMessage

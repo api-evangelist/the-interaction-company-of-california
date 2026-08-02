@@ -1,0 +1,14 @@
+{
+  "provider": "the-interaction-company-of-california",
+  "sources": [
+    "the-interaction-company-of-california-messaging-api-openapi.yml"
+  ],
+  "outputs": [
+    "the-interaction-company-of-california-messaging-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://poke.com/docs/release-notes
+scheme: date-based
+note: >-
+  Poke does not use semantic version numbers; release notes are organized
+  chronologically and the team has stated they are "switching to major updates
+  only." Recent window captured below.
+entries:
+  - date: '2026-06-25'
+    breaking: false
+    highlights:
+      - >-
+        Launched "Poke Human" — real people handle complex tasks like
+        reservations and phone calls (included with Poke Ultra).
+  - date: '2026-06-18'
+    breaking: false
+    highlights:
+      - Released the Poke Ultra subscription tier.
+      - Introduced website creation and deployment at personalized domains.
+  - date: '2026-06-08'
+    breaking: false
+    highlights:
+      - Enabled custom "@poke.com" email addresses via username claiming.
+  - date: '2026-06-04'
+    breaking: false
+    highlights:
+      - Made Poke available on Apple Messages as a verified AI product.
+  - date: '2026-03-19'
+    breaking: false
+    highlights:
+      - >-
+        Opened Poke Recipes to general availability — create, share, and publish
+        automations.

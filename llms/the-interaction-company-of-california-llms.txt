@@ -1,0 +1,13 @@
+# Poke
+
+> Poke is the proactive AI assistant on Apple Messages, WhatsApp, Telegram, and more. Poke texts like a human, really knows you, and integrates with your life in dozens of ways.
+
+## Docs
+
+- [Welcome](https://poke.com/docs): Getting started with Poke
+- [Managing Integrations](https://poke.com/docs/managing-integrations): Connect apps and services to Poke, including pre-built integrations and custom MCP servers
+- [Merging Accounts](https://poke.com/docs/merging-accounts): How to merge two Poke accounts when a phone number is shared
+- [Creating Recipes](https://poke.com/docs/creating-recipes): Create, test, and publish Recipes — blueprints that bundle integrations, automations, and onboarding questions — with Kitchen and the CLI
+- [MCP Servers](https://poke.com/docs/mcp-servers): Connect custom MCP servers to extend Poke with new tools and capabilities
+- [Poke API](https://poke.com/docs/api): Send messages to Poke programmatically via the API
+- [Release Notes](https://poke.com/docs/release-notes): Latest updates and fixes

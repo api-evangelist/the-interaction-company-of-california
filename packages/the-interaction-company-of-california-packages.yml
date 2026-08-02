@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/package/poke
+packages:
+  - language: javascript
+    registry: npm
+    name: poke
+    version: 0.4.2
+    description: Poke.com Developer SDK — first-party CLI + developer tooling for Poke.
+    url: https://www.npmjs.com/package/poke
+    install: npx poke@latest
+    official: true
+    notes: >-
+      Provides the `poke` CLI (login/logout/whoami, mcp add, tunnel, recipe
+      creation) documented at https://poke.com/docs/creating-recipes. Command
+      surface catalogued in cli/the-interaction-company-of-california-cli.yml.

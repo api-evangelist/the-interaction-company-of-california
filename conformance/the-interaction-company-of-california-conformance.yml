@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/the-interaction-company-of-california-poke-openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security scheme; auth is HTTP bearer with a static API key.
+  - id: oidc
+    conforms: false
+  - id: http-bearer-auth
+    conforms: true
+    evidence: 'securityScheme type http/bearer (Authorization: Bearer <V2 API key>)'
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors/status use a { success, message } JSON envelope, not
+      application/problem+json.
+  - id: rest-json
+    conforms: true
+    evidence: JSON request/response over HTTPS.
+  - id: mcp
+    conforms: true
+    evidence: >-
+      Poke acts as a Model Context Protocol client and publishes MCP server
+      templates (github.com/InteractionCo) and MCP integration docs
+      (https://poke.com/docs/mcp-servers) for extending it.

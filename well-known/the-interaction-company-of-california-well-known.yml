@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: live probe of /.well-known/* on provider hosts
+hosts:
+  - host: https://poke.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://interaction.co
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+notes: >-
+  No /.well-known/ discovery documents are published on either poke.com or
+  interaction.co as of the probe date. Absence is valid, expected data.

@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://poke.com/docs/api
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://poke.com/docs/api
+deprecation:
+  policy_url: https://poke.com/docs/api
+  sunset_header: false
+  notes: >-
+    The legacy inbound endpoint POST /api/v1/inbound-sms/webhook is documented as
+    deprecated and works only with legacy V1 (pk_-prefixed) API keys; the
+    supported replacement is POST /api/v1/inbound/api-message with a V2 API key.
+    No formal Sunset/Deprecation-header (RFC 8594) support is documented.
+status_page: https://status.poke.com
+changelog: https://poke.com/docs/release-notes
+deprecated_operations:
+  - openapi/the-interaction-company-of-california-poke-openapi.yml#sendInboundSmsWebhook
