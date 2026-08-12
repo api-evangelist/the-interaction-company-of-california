@@ -60,6 +60,8 @@ apis:
   - type: OpenAPI
     url: openapi/the-interaction-company-of-california-messaging-api-openapi.yml
 common:
+- type: Overlay
+  url: overlays/the-interaction-company-of-california-poke-overlay.yaml
 - type: DomainSecurity
   url: security/the-interaction-company-of-california-domain-security.yml
 - type: Authentication
