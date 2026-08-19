@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Poke Messaging API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messaging",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a message to Poke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poke.com/api/v1/inbound/api-message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Send a message to Poke programmatically. The entire JSON body is forwarded to the agent as context; a `message` field carrying the instruction or question is the documented convention. Authenticate with a V2 API key (generated in Kitchen) as a bearer token."
+        },
+        {
+          "info": {
+            "name": "Legacy inbound SMS webhook (deprecated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://poke.com/api/v1/inbound-sms/webhook",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deprecated legacy inbound endpoint. Works only with legacy V1 API keys (the `pk_`-prefixed keys from app Settings). Use `POST /api/v1/inbound/api-message` with a V2 API key instead."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
