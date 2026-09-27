@@ -76,7 +76,6 @@ apis:
   name: The Interaction Company Of California Messaging API
   description: Send messages to Poke programmatically.
   humanURL: https://poke.com/docs/api
-  baseURL: https://poke.com
   tags:
   - Messaging
   properties:
